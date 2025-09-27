@@ -17,6 +17,7 @@ fn no_space(x : String) -> String{
 }
 
 // Second codewars problem with rust
+// TODO: FIX THIS METHOD
 fn alphabetic(s: &str) -> bool {
     let collection = s.to_lowercase().chars().collect();
     collection.sort_by(|a, b| b.cmp(a));
