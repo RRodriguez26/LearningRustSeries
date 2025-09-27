@@ -10,3 +10,14 @@ fn main() {
 
     say(&message, width, &mut writer).unwrap();
 }
+
+// First code wars problems with rust :)
+fn no_space(x : String) -> String{
+  return x.replace(" ", "");
+}
+
+// Second codewars problem with rust
+fn alphabetic(s: &str) -> bool {
+    let collection = s.to_lowercase().chars().collect();
+    collection.sort_by(|a, b| b.cmp(a));
+}
