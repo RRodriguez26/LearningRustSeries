@@ -2,20 +2,26 @@ use ferris_says::say;
 use std::io::{stdout, BufWriter};
 
 fn main() {
+    let message;
+
+    // run "cargo run --features "clippy"" to produce clippy art and message
+    if cfg!(feature = "clippy") {
+        message = "Hello, I'm Clippy!";
+    } else {
+        message = "Hello, I'm Raf!";
+    }
+    
+    speak(message);
+}
+
+fn speak(message: &str) {
     let stdout = stdout();
-    let message = String::from("Hello I'm Raf!");
+    let message = String::from(message);
     let width_intro = message.chars().count();
 
     let mut writer = BufWriter::new(stdout.lock());
 
     say(&message, width_intro, &mut writer).unwrap();
-
-
-    let message_clippy = String::from("Hello I'm Clippy!");
-    let width_clippy_intro = message.chars().count();
-    // TODO: Add clippy
-    // Now say something as clippy
-    say(&message_clippy, width_clippy_intro, &mut writer).unwrap();
 }
 
 // First code wars problems with rust :)
